@@ -17,14 +17,21 @@ $(document).ready(function () {
         return question;
     }
 
-    equation = question();
-    $('.equationOutput').text(equation.equation);
+    var newEquation = function () {
+        equation = question();
+        $('.equationOutput').text(equation.equation);
+    }
 
     var answerCompare = function (userAnswer, answer) {
-        console.log(userAnswer === answer);
+        if (userAnswer === answer) {
+            userScore ++;
+            newEquation();
+        }
     }
 
     $('.userAnswer').on('keyup', function () {
         answerCompare(Number($(this).val()), equation.answer);
     })
+
+    newEquation();
 });
