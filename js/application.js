@@ -32,17 +32,28 @@ $(document).ready(function () {
     }
 
     $('.userAnswer').on('keyup', function () {
+        startGame();
         answerCompare(Number($(this).val()), equation.answer);
     })
 
     newEquation();
 
-    var timer = setInterval(function () {
-        updateTimer(-1);
-        if (secRemaining === 0) {
-            clearInterval(timer);
+    var timer;
+
+    var startGame = function () {
+        if (!timer) {
+            if (secRemaining === 0) {
+                updateTimer(10);
+            }
+            timer = setInterval(function () {
+                updateTimer(-1);
+                if (secRemaining === 0) {
+                    clearInterval(timer);
+                    timer = undefined;
+                }
+            }, 1000);
         }
-    }, 1000);
+    }
 
     var updateTimer = function (amount) {
         secRemaining += amount;
