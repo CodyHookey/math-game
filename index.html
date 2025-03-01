@@ -14,18 +14,28 @@
 </head>
 <body>
     <div class="container">
-        <p>Current Score: <span class="currentScore">0</span></p>
-        <p>High Score: <span class="highScore">0</span></p>
-        <h1>Maths Game</h1>
-        <p class="timer"></p>
-        <h3 class="equationOutput"></h3>
-        <div class="inputFields">
-            <div class="answerInput">
-                <input type="number" class="userAnswer">
-            </div>
-            <div class="numberSlider">
-                <p class="rangeOutput"></p>
-                <input type="range" min="10" max="100" value="10" class="slider">
+        <div class="row mainRow">
+            <div class="col-xs-12 mainCol">
+                <div class="mainHeader">
+                    <div class="scoreCard">
+                        <p>Current Score: <span class="currentScore">0</span></p>
+                        <p>High Score: <span class="highScore">0</span></p>
+                    </div>
+                    <h1>Maths Game</h1>
+                </div>
+                <div class="mainElements">
+                    <p>Time Remaining: <span class="timer">10</span> Seconds</p>
+                    <h3 class="equationOutput"></h3>
+                    <div class="inputFields">
+                        <div class="answerInput">
+                            <input type="number" class="userAnswer">
+                        </div>
+                        <div class="numberSlider">
+                            <p class="rangeOutput"></p>
+                            <input type="range" min="10" max="100" value="10" class="slider">
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
