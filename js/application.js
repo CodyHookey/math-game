@@ -1,4 +1,5 @@
 $(document).ready(function () {
+    var secRemaining = 10;
     var equation;
 
     var randomNum = function (num) {
@@ -26,6 +27,7 @@ $(document).ready(function () {
         if (userAnswer === answer) {
             newEquation();
             $('.userAnswer').val('');
+            updateTimer(+1);
         }
     }
 
@@ -34,4 +36,16 @@ $(document).ready(function () {
     })
 
     newEquation();
+
+    var timer = setInterval(function () {
+        updateTimer(-1);
+        if (secRemaining === 0) {
+            clearInterval(timer);
+        }
+    }, 1000);
+
+    var updateTimer = function (amount) {
+        secRemaining += amount;
+        $('.timer').text(secRemaining);
+    }
 });
