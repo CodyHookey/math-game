@@ -19,4 +19,12 @@ $(document).ready(function () {
 
     equation = question();
     $('.equationOutput').text(equation.equation);
+
+    var answerCompare = function (userAnswer, answer) {
+        console.log(userAnswer === answer);
+    }
+
+    $('.userAnswer').on('keyup', function () {
+        answerCompare(Number($(this).val()), equation.answer);
+    })
 });
