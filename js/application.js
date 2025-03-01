@@ -1,15 +1,22 @@
-var randomNum = function (num) {
-    return Math.floor(Math.random() * num);
-}
+$(document).ready(function () {
+    var equation;
 
-var question = function () {
-    var question = {};
+    var randomNum = function (num) {
+        return Math.floor(Math.random() * num);
+    }
 
-    var num1 = randomNum(10);
-    var num2 = randomNum(10);
+    var question = function () {
+        var question = {};
 
-    question.answer = num1 + num2;
-    question.equation = String(num1) + " + " + String(num2);
+        var num1 = randomNum(10);
+        var num2 = randomNum(10);
 
-    return question;
-}
+        question.answer = num1 + num2;
+        question.equation = String(num1) + " + " + String(num2);
+
+        return question;
+    }
+
+    equation = question();
+    $('.equationOutput').text(equation.equation);
+});
