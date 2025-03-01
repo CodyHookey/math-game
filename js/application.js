@@ -1,3 +1,9 @@
+var rangeFunc = function () {
+    $('.slider').on('input', function() {
+        $('.rangeOutput').text($(this).val());
+    });
+}
+
 $(document).ready(function () {
     var secRemaining = 10;
     var score = 0;
@@ -18,8 +24,8 @@ $(document).ready(function () {
     var question = function () {
         var question = {};
 
-        var num1 = randomNum(10);
-        var num2 = randomNum(10);
+        var num1 = randomNum($('.slider').val());
+        var num2 = randomNum($('.slider').val());
 
         question.answer = num1 + num2;
         question.equation = String(num1) + " + " + String(num2);
@@ -76,4 +82,7 @@ $(document).ready(function () {
         score += amount;
         $('.currentScore').text(score);
     }
+
+    rangeFunc();
+    $('.rangeOutput').text($('.slider').val());
 });
