@@ -1,6 +1,15 @@
 $(document).ready(function () {
     var secRemaining = 10;
+    var score = 0;
+    var highScore = 0;
     var equation;
+
+    var updateHighScore = function () {
+        if (score > highScore) {
+            highScore += score;
+            $('.highScore').text(highScore);
+        }
+    }
 
     var randomNum = function (num) {
         return Math.floor(Math.random() * num);
@@ -28,6 +37,8 @@ $(document).ready(function () {
             newEquation();
             $('.userAnswer').val('');
             updateTimer(+1);
+            updateScore(+1);
+            updateHighScore();
         }
     }
 
@@ -44,6 +55,7 @@ $(document).ready(function () {
         if (!timer) {
             if (secRemaining === 0) {
                 updateTimer(10);
+                updateScore(-score);
             }
             timer = setInterval(function () {
                 updateTimer(-1);
@@ -58,5 +70,10 @@ $(document).ready(function () {
     var updateTimer = function (amount) {
         secRemaining += amount;
         $('.timer').text(secRemaining);
+    }
+
+    var updateScore = function (amount) {
+        score += amount;
+        $('.currentScore').text(score);
     }
 });
