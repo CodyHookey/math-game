@@ -24,8 +24,8 @@ $(document).ready(function () {
 
     var answerCompare = function (userAnswer, answer) {
         if (userAnswer === answer) {
-            userScore ++;
             newEquation();
+            $('userAnswer').val('');
         }
     }
 
